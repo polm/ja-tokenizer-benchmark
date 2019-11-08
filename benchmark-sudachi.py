@@ -7,7 +7,6 @@ from collections import Counter
 mode = tokenizer.Tokenizer.SplitMode.A
 tokenizer_obj = dictionary.Dictionary().create(mode=mode)
 
-
 wc = Counter()
 
 for line in open('wagahai.txt'):
