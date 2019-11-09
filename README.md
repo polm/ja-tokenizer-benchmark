@@ -4,7 +4,7 @@ This repository has scripts for benchmarking Japanese tokenizers. It was
 originally created to make sure that [fugashi](https://github.com/polm/fugashi)
 wasn't slower than [mecab-python3](https://github.com/samurait/mecab-python3). 
 
-The benchmark task is to get a word count from the [Aozora Bunko edition of "I am a Cat"](https://www.aozora.gr.jp/cards/000148/files/789_14547.html) using a Counter object.
+The benchmark task is to get a per-word word count from the [Aozora Bunko edition of "I am a Cat"](https://www.aozora.gr.jp/cards/000148/files/789_14547.html), stored in the `wagahai.txt` file, using a Counter object.
 
 I suggest using [hyperfine](https://github.com/sharkdp/hyperfine) for
 benchmarking, though anything that can run the scripts is adequate.
