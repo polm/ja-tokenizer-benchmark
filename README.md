@@ -12,7 +12,7 @@ benchmarking, though anything that can run the scripts is adequate.
 To run:
 
     # install mecab, unidic, and hyperfine with your OS package manager
-    pip install fugashi mecab-python3 sudachipy
+    pip install fugashi mecab-python3 sudachipy natto-py
     # sudachipy needs its own dictionary
     pip install https://object-storage.tyo2.conoha.io/v1/nc_2520839e1f9641b08211a5c85243124a/sudachi/SudachiDict_core-20191030.tar.gz
     hyperfine -w 10 ./bench*.py
@@ -21,6 +21,7 @@ Results on my machine:
 
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `./benchmark-fugashi.py` | 266.4 ± 1.2 | 264.4 | 268.3 | 1.0 |
-| `./benchmark-mecab-python3.py` | 259.2 ± 5.3 | 253.5 | 270.2 | 1.0 |
-| `./benchmark-sudachi.py` | 58027.6 ± 234.0 | 57658.2 | 58504.6 | 223.8 |
+| `./benchmark-fugashi.py` | 266.8 ± 1.2 | 265.0 | 269.1 | 1.0 |
+| `./benchmark-mecab-python3.py` | 255.6 ± 2.3 | 251.9 | 259.7 | 1.0 |
+| `./benchmark-natto.py` | 1178.3 ± 27.8 | 1153.9 | 1230.5 | 4.6 |
+| `./benchmark-sudachi.py` | 58495.8 ± 283.2 | 58157.2 | 58898.5 | 228.9 |
