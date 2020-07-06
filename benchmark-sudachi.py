@@ -11,4 +11,4 @@ wc = Counter()
 
 for line in open('wagahai.txt'):
     for word in tokenizer_obj.tokenize(line.strip()):
-        wc[word.surface] += 1
+        wc[word.surface()] += 1
