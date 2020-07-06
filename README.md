@@ -11,17 +11,22 @@ benchmarking, though anything that can run the scripts is adequate.
 
 To run:
 
-    # install mecab, unidic, and hyperfine with your OS package manager
-    pip install fugashi mecab-python3 sudachipy natto-py
-    # sudachipy needs its own dictionary
-    pip install https://object-storage.tyo2.conoha.io/v1/nc_2520839e1f9641b08211a5c85243124a/sudachi/SudachiDict_core-20191030.tar.gz
+    # install hyperfine with your OS package manager
+    pip install fugashi[unidic-lite] mecab-python3 sudachipy sudachidict_core natto-py janome
+    # benchmark
     hyperfine -w 10 ./bench*.py
+
+The difference between `fugashi` and `fugashi-parse` is that `fugashi-parse`
+uses MeCab's `parse` method to get a string and then splits it on whitespace,
+while `fugashi` uses the `Node` interface to get a list of word objects.
 
 Results on my machine:
 
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `./benchmark-fugashi.py` | 266.8 ± 1.2 | 265.0 | 269.1 | 1.0 |
-| `./benchmark-mecab-python3.py` | 255.6 ± 2.3 | 251.9 | 259.7 | 1.0 |
-| `./benchmark-natto.py` | 1178.3 ± 27.8 | 1153.9 | 1230.5 | 4.6 |
-| `./benchmark-sudachi.py` | 58495.8 ± 283.2 | 58157.2 | 58898.5 | 228.9 |
+| `./benchmark-fugashi-parse.py` | 245.6 ± 1.3 | 244.3 | 248.9 | 1.00 |
+| `./benchmark-fugashi.py` | 268.6 ± 1.2 | 267.6 | 272.1 | 1.09 ± 0.01 |
+| `./benchmark-janome.py` | 14897.3 ± 353.1 | 14603.0 | 15733.1 | 60.65 ± 1.47 |
+| `./benchmark-mecab-python3.py` | 269.7 ± 6.3 | 265.2 | 286.3 | 1.10 ± 0.03 |
+| `./benchmark-natto.py` | 1066.9 ± 9.5 | 1049.4 | 1083.3 | 4.34 ± 0.04 |
+| `./benchmark-sudachi.py` | 9187.1 ± 54.2 | 9118.6 | 9306.5 | 37.40 ± 0.29 |
