@@ -12,7 +12,7 @@ benchmarking, though anything that can run the scripts is adequate.
 To run:
 
     # install hyperfine with your OS package manager
-    pip install install -r requirements.txt
+    pip install -r requirements.txt
     # benchmark
     hyperfine -w 10 ./bench*.py
 
