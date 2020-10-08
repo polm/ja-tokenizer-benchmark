@@ -10,3 +10,4 @@ sortedcontainers==2.1.0
 SudachiDict-core==20200330
 SudachiPy==0.4.9
 unidic-lite==1.0.6
+nagisa==0.2.7
