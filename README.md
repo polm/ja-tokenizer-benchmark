@@ -16,17 +16,11 @@ To run:
     # benchmark
     hyperfine -w 10 ./bench*.py
 
-The difference between `fugashi` and `fugashi-parse` is that `fugashi-parse`
-uses MeCab's `parse` method to get a string and then splits it on whitespace,
-while `fugashi` uses the `Node` interface to get a list of word objects.
-
 Results on my machine:
 
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `./benchmark-fugashi-parse.py` | 245.6 ± 1.3 | 244.3 | 248.9 | 1.00 |
-| `./benchmark-fugashi.py` | 268.6 ± 1.2 | 267.6 | 272.1 | 1.09 ± 0.01 |
-| `./benchmark-janome.py` | 14897.3 ± 353.1 | 14603.0 | 15733.1 | 60.65 ± 1.47 |
-| `./benchmark-mecab-python3.py` | 269.7 ± 6.3 | 265.2 | 286.3 | 1.10 ± 0.03 |
-| `./benchmark-natto.py` | 1066.9 ± 9.5 | 1049.4 | 1083.3 | 4.34 ± 0.04 |
-| `./benchmark-sudachi.py` | 9187.1 ± 54.2 | 9118.6 | 9306.5 | 37.40 ± 0.29 |
+| `./benchmark-fugashi.py` | 332.0 ± 6.2 | 324.6 | 344.2 | 1.00 |
+| `./benchmark-mecab-python3.py` | 353.7 ± 4.4 | 347.1 | 360.0 | 1.07 ± 0.02 |
+| `./benchmark-sudachi.py` | 662.0 ± 7.9 | 652.2 | 680.5 | 1.99 ± 0.04 |
+| `./benchmark-natto.py` | 1119.2 ± 16.6 | 1095.6 | 1148.7 | 3.37 ± 0.08 |
